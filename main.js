@@ -13,14 +13,12 @@ const firebaseConfig = {
   storageBucket: "lms-novaforge-147147.firebasestorage.app",
   messagingSenderId: "933736096520",
   appId: "1:933736096520:web:230765d537372eec9742bd",
-  measurementId: "G-0MQT1H5LJN",
+  measurementId: "G-0MQT1H5LJN"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// DOM Elements
 const userForm = document.getElementById("user-form");
 const otpForm = document.getElementById("otp-form");
 const successMessage = document.getElementById("success-message");
@@ -35,12 +33,10 @@ const goToQuizButton = document.getElementById("goToQuizButton");
 const clipboardSuccess = document.getElementById("clipboard-success");
 const errorMessage = document.getElementById("error-message");
 
-// Variables
 let recaptchaVerifier;
 let confirmationResult;
 let isCooldown = false;
 
-// Initialize reCAPTCHA
 window.onload = () => {
   recaptchaVerifier = new RecaptchaVerifier(
     "recaptcha-container",
@@ -119,6 +115,8 @@ verifyOtpButton.addEventListener("click", async () => {
     copyButton.addEventListener("click", () => {
       copyToClipboard(`Username: ${user.phoneNumber}\nPassword: ${password}`);
     });
+
+   
 
     clearError();
   } catch (error) {
